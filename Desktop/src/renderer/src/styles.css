@@ -1,0 +1,437 @@
+:root {
+  color-scheme: dark;
+  --bg: #07090f;
+  --panel: rgba(16, 21, 32, 0.86);
+  --line: rgba(232, 238, 247, 0.1);
+  --text: #e8eef7;
+  --muted: #93a0b5;
+  --accent: #66c0f4;
+  --steam: #1b2838;
+  --danger: #ff8a80;
+  font-family: "Segoe UI", "Trebuchet MS", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 40px;
+}
+
+.login {
+  display: grid;
+  place-items: center;
+}
+
+.glow {
+  position: absolute;
+  width: 42vw;
+  height: 42vw;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.glow-a {
+  top: -12%;
+  left: -8%;
+  background: rgba(102, 192, 244, 0.16);
+}
+
+.glow-b {
+  right: -10%;
+  bottom: -18%;
+  background: rgba(92, 219, 149, 0.1);
+}
+
+.card,
+.profile-card {
+  position: relative;
+  width: min(560px, 100%);
+  padding: 36px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.lede,
+.muted,
+.mono,
+.status {
+  color: var(--muted);
+}
+
+.lede {
+  margin: 0 0 28px;
+  line-height: 1.55;
+}
+
+.steam-btn,
+.ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.steam-btn {
+  width: 100%;
+  min-height: 52px;
+  background: linear-gradient(180deg, #2a475e, var(--steam));
+  color: #fff;
+}
+
+.steam-btn:hover:not(:disabled) {
+  outline: 1px solid var(--accent);
+}
+
+.steam-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.ghost-btn {
+  padding: 8px 14px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.ghost-btn:hover {
+  border-color: var(--accent);
+}
+
+.error {
+  margin: 16px 0 0;
+  color: var(--danger);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.profile-card {
+  width: min(720px, 100%);
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 20px;
+  object-fit: cover;
+  background: #1b2838;
+}
+
+.avatar.fallback {
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6b7280;
+}
+
+.dot.on {
+  background: #5cdb95;
+  box-shadow: 0 0 10px #5cdb95;
+}
+
+.mono {
+  margin: 0 0 12px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 13px;
+}
+
+.profile-link {
+  text-decoration: none;
+}
+
+.hint {
+  max-width: 720px;
+  margin-top: 24px;
+  line-height: 1.5;
+}
+
+.shell.home {
+  height: 100vh;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.topbar.compact {
+  margin-bottom: 12px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.tab.on,
+.tab:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.library-pane {
+  flex: 1;
+  min-height: 0;
+}
+
+.pane-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.name-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 8px 12px;
+}
+
+.name-row {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.name-list li:hover .name-row {
+  background: rgba(102, 192, 244, 0.1);
+}
+
+.whoami {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.whoami-name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.avatar.sm {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.home-layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 16px;
+}
+
+.pane {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.pane-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 16px 8px;
+}
+
+.pane-head h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.count,
+.pad {
+  margin: 0;
+}
+
+.count {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.search {
+  margin: 0 16px 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #0b0f16;
+  color: var(--text);
+}
+
+.search:focus {
+  outline: 1px solid var(--accent);
+}
+
+.pane-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.list-label {
+  margin: 4px 16px 4px;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.friend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 8px 12px;
+}
+
+.friend-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.friend-row:hover,
+.friend-row.on {
+  background: rgba(102, 192, 244, 0.1);
+}
+
+.friend-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.friend-meta strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tick {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  flex: 0 0 auto;
+}
+
+.tick.on {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.games-body {
+  padding-bottom: 16px;
+}
+
+.game-names {
+  margin: 0 0 16px;
+  padding: 0 20px 8px 40px;
+  line-height: 1.7;
+}
+
+.link-btn {
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0;
+}
+
+.pad {
+  padding: 8px 16px 16px;
+}
+
+.hint-block {
+  margin-top: 10px;
+  line-height: 1.55;
+}
