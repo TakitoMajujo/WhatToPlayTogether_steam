@@ -4,3 +4,5 @@ dist/
 release/
 *.log
 .env
+Ejecutable/
+Ejecutable
