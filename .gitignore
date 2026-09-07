@@ -4,5 +4,15 @@ out/
 release/
 *.log
 .env
+**/.env
+Ejecutable/
+Ejecutable
+movil/android/app/build/
+movil/android/build/
+movil/android/.gradle/
+movil/android/local.properties
+movil/android/*.jks
+movil/android/*.keystore
+movil/android/keystore.properties
 .DS_Store
 Thumbs.db
